@@ -1,0 +1,28 @@
+@import '../../styles/mixins.less';
+
+@viewPrefixCls: gc-view;
+
+.@{viewPrefixCls} {
+  width: 100vw;
+  height: 100vh;
+  background: @BGColor;
+  .flex();
+
+  &-bg {
+    width: @BGWidth;
+    height: @BGHeight;
+    background-image: @BGUrl;
+    position: relative;
+  }
+
+  &-box {
+    position: absolute;
+    top: -40 * @hd;
+    right: 18 * @hd;
+    padding: 36 * @hd;
+    width: 400 * @hd;
+    height: 480 * @hd;
+    background: white;
+  }
+
+}

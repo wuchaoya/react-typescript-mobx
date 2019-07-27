@@ -1,0 +1,25 @@
+@import '../../styles/mixins.less';
+
+@toolbarPrefixCls: gc-toolbar;
+
+.@{toolbarPrefixCls} {
+  padding:  18 * @hd 0;// 使用padding 避免BFC
+  font-size: 14 * @hd;
+  color: #555;
+  border: @hd solid #fff;
+  .flex(space-between, center);
+
+  &-checkbox {
+    height: 18 * @hd;
+  }
+
+  &-link {
+    color: #555;
+
+    &:hover {
+      color: @brand-primary;
+    }
+
+  }
+
+}

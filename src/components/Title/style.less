@@ -1,0 +1,23 @@
+@import '../../styles/mixins.less';
+
+@titlePrefixCls: gc-title;
+
+.@{titlePrefixCls} {
+  .flex();
+
+  &-title {
+    font-size: @font-size-title;
+    color: @brand-primary;
+  }
+
+  &-subtitle {
+    font-size: @font-size-subTitle;
+    color: @brand-primary;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+}

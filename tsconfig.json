@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+    "noImplicitThis": false,
+    "allowSyntheticDefaultImports": true,
     "target": "es5",
     "lib": [
       "dom",
@@ -9,16 +13,16 @@
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "isolatedModules": true
   },
+  "exclude": ["src/config/*.ts", "src/utils/request.ts"],
   "include": [
     "src"
   ]
