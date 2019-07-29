@@ -14,3 +14,16 @@ export async function login (params: object) {
     data: params,
   })
 }
+
+/**
+ * 获取用户信息
+ * @param params{mobile: 手机号}
+ * @returns {Promise<R>}
+ */
+export async function getUserInfo (params:object) {
+  return request(`/pub/user/user_info`, {
+    method: 'POST',
+    requestType: 'form',
+    data: params,
+  })
+}

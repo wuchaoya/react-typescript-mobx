@@ -34,7 +34,7 @@
     "react-scripts": "3.0.1",
     "source-map-explorer": "^2.0.1",
     "typescript": "3.5.3",
-    "umi-request": "^1.1.0"
+    "umi-request": "^1.2.0-beta.4"
   },
   "scripts": {
     "analyze": "cross-env BUNDLE_VISUALIZE=1 react-app-rewired build",

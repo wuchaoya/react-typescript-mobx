@@ -6,6 +6,8 @@ import SignIn from './SignIn';
 const browserHistory = createBrowserHistory();
 const routingStore = new RouterStore();
 
+
+// 同步路由信息
 export const history = syncHistoryWithStore(browserHistory, routingStore);
 
 export default {

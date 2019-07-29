@@ -9,6 +9,9 @@ import './style.less';
 export interface PropsType {
   title: string
   subtitle?: string
+  center?: boolean
+  titleColor?: string
+  titleNormal?: boolean
 }
 
 export interface Props {
@@ -17,11 +20,10 @@ export interface Props {
 
 const Title: React.FC<PropsType & Props> = props => {
   
-  const {title, subtitle, prefixCls = 'gc-title'} = props;
-  
+  const {title, center,titleNormal, subtitle, prefixCls = 'gc-title'} = props;
   return (
-    <div className={classnames(prefixCls)}>
-      <span className={classnames(`${prefixCls}-title`)}>{title}</span>
+    <div className={classnames(prefixCls,{[`${prefixCls}-center`]: center})}>
+      <span className={classnames(`${prefixCls}-title`,{[`${prefixCls}-title-normal`]: titleNormal})}>{title}</span>
       <span className={classnames(`${prefixCls}-subtitle`)}>{subtitle}</span>
     </div>
   )

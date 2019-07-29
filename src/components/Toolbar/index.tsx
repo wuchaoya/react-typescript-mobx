@@ -1,8 +1,6 @@
-/**
- * 标题
- */
 import React from 'react';
 import { Checkbox } from 'antd';
+import {CheckboxProps} from 'antd/lib/checkbox';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 
@@ -12,7 +10,7 @@ export interface PropsType {
 
 }
 
-export interface Props {
+export interface Props extends CheckboxProps {
   prefixCls?: string;
 }
 
@@ -22,7 +20,7 @@ const Toolbar: React.FC<PropsType & Props> = props => {
   
   return (
     <div className={classnames(prefixCls)}>
-      <Checkbox className={classnames(`${prefixCls}-checkbox`)}>记住密码</Checkbox>
+      <Checkbox {...props} className={classnames(`${prefixCls}-checkbox`)}>记住密码</Checkbox>
       <Link className={classnames(`${prefixCls}-link`)} to='/404'>忘记密码</Link>
     </div>
   )

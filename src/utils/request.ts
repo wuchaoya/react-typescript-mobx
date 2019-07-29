@@ -3,7 +3,7 @@
  * 更详细的 api 文档: https://github.com/umijs/umi-request
  */
 import { extend, RequestOptionsInit } from 'umi-request';
-import { notification } from 'antd';
+import { notification, message } from 'antd';
 import ClientId from './ClientId';
 import Sign from './Sign';
 
@@ -53,13 +53,13 @@ const errorHandler = (error: { response: Response }): Response => {
  * @param options
  * @returns {Promise<{options: {headers: {Content-Type: string, clientType: number, mobile: string, clientId: any, timestamp: Object, Sign: string, appKey: string}}}>}
  */
-function interceptors (url: string, options: RequestOptionsInit) {
+const interceptors = (url: string, options: RequestOptionsInit) => {
   
   let timestamp = (new Date()).valueOf();
   let clientId = ClientId();
   
-  let data = JSON.parse(window.localStorage.getItem('headerData') || '')
-  data ||  (data = {mobile: ''})
+  const headerData = window.localStorage.getItem('headerData')
+  let data = headerData ? JSON.parse(headerData) : {mobile: ''}
   
   let userInfo = window.localStorage.getItem('userInfo')
   
@@ -107,5 +107,18 @@ const request = extend({
 
 // 请求前拦截
 request.interceptors.request.use( interceptors );
+
+request.interceptors.response.use((response, options) => {
+  return new Promise(resolve => {
+    response.json().then(res => {
+      if (res.code !== 10000) {
+        res.error = true
+        message.error(res.result)
+      }
+      resolve(res)
+    })
+  })
+  
+});
 
 export default request;

@@ -10,12 +10,12 @@ export interface PropsType {
   Global: Global,
 }
 
-type SignUpProps = PropsType & RouteComponentProps;
+type ResetPasswordProps = PropsType & RouteComponentProps;
 
 
 @inject('Global')
 @observer
-class SignUp extends React.PureComponent<SignUpProps> {
+class ResetPassword extends React.PureComponent<ResetPasswordProps> {
   
   async componentDidMount () {
   
@@ -24,12 +24,12 @@ class SignUp extends React.PureComponent<SignUpProps> {
   render () {
     return (
       <>
-      <Title titleNormal title='注册' subtitle='已有账号,立即登录'/>
+      <Title title='忘记密码' />
       <Input placeholder='请输入手机号'/>
       <CodeInput />
       <Input type='password' placeholder='请输入密码' />
       <Input type='password' placeholder='请再次输入密码'/>
-      <Button type='primary' shape='round' ghost>立即注册</Button>
+      <Button type='primary' shape='round'>确定</Button>
       </>
     )
   }
@@ -37,4 +37,4 @@ class SignUp extends React.PureComponent<SignUpProps> {
 }
 
 
-export default View<SignUpProps>(SignUp);
+export default View<ResetPasswordProps>(ResetPassword);

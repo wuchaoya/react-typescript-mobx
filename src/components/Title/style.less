@@ -3,11 +3,14 @@
 @titlePrefixCls: gc-title;
 
 .@{titlePrefixCls} {
-  .flex();
-
+  .flex(space-between, center);
   &-title {
     font-size: @font-size-title;
     color: @brand-primary;
+  }
+
+  &-title-normal {
+    color: #000;
   }
 
   &-subtitle {
@@ -20,4 +23,8 @@
     }
   }
 
+}
+
+.@{titlePrefixCls}-center {
+  .flex();
 }
