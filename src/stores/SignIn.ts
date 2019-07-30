@@ -6,13 +6,9 @@ import {checkMobile, checkPassword} from '../utils/RegExps';
 
 export interface ObjectType {
   [key: string]: string,
-  mobile: string,
-  password: string
 }
 
 class SignIn {
-  
-  @observable title: string
   
   // 记住密码
   @observable remember: boolean

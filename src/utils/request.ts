@@ -34,17 +34,20 @@ const codeMessage: CategoriesMap = {
  * 异常处理程序
  */
 const errorHandler = (error: { response: Response }): Response => {
+  console.log(error);
   const { response } = error;
   if (response && response.status) {
     const errorText: string = codeMessage[response.status] || response.statusText;
     const { status, url } = response;
-
+    console.log(response);
     notification.error({
       message: `请求错误 ${status}: ${url}`,
       description: errorText,
     });
   }
-  return response;
+  let newResponse: any = response;
+  newResponse.error = true;
+  return newResponse;
 };
 
 /**
@@ -109,6 +112,10 @@ const request = extend({
 request.interceptors.request.use( interceptors );
 
 request.interceptors.response.use((response, options) => {
+  console.log(response);
+  if (response.status !== 200) {
+    return response
+  }
   return new Promise(resolve => {
     response.json().then(res => {
       if (res.code !== 10000) {

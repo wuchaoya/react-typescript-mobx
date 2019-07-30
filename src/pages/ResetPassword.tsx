@@ -26,7 +26,7 @@ class ResetPassword extends React.PureComponent<ResetPasswordProps> {
       <>
       <Title title='忘记密码' />
       <Input placeholder='请输入手机号'/>
-      <CodeInput />
+      <CodeInput phone='' />
       <Input type='password' placeholder='请输入密码' />
       <Input type='password' placeholder='请再次输入密码'/>
       <Button type='primary' shape='round'>确定</Button>

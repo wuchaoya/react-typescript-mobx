@@ -1,5 +1,4 @@
 import {observable,action} from 'mobx';
-import {login } from '../services/global';
 
 class Global {
   
@@ -8,14 +7,6 @@ class Global {
   @action.bound setTitle (title: string) {
     this.title = title;
   }
-  
-  @action.bound  async login () {
-    await login({
-      mobile: '18695912990',
-      password: '123456'
-    })
-  }
-  
   
 }
 

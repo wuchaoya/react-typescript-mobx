@@ -21,7 +21,7 @@ const Toolbar: React.FC<PropsType & Props> = props => {
   return (
     <div className={classnames(prefixCls)}>
       <Checkbox {...props} className={classnames(`${prefixCls}-checkbox`)}>记住密码</Checkbox>
-      <Link className={classnames(`${prefixCls}-link`)} to='/404'>忘记密码</Link>
+      <Link className={classnames(`${prefixCls}-link`)} to='/ResetPassword'>忘记密码</Link>
     </div>
   )
   

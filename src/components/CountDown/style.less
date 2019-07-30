@@ -1,0 +1,19 @@
+@import '../../styles/mixins.less';
+
+@countDownPrefixCls: gc-countDown;
+
+.@{countDownPrefixCls} {
+
+  position: absolute;
+  right: 6 * @hd;
+  height: 68 * @hd;
+  line-height: 68 * @hd;
+
+  &:hover{
+    cursor: pointer;
+  }
+  &.disabled{
+    color: #666;
+  }
+
+}
