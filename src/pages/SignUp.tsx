@@ -1,21 +1,21 @@
 import React from 'react';
 import View from '../components/View';
 import { inject, observer } from 'mobx-react';
-import Global from '../stores/Global';
-import SignUpStore from '../stores/SignUp';
+import GlobalStore from '../stores/GlobalStore';
+import SignUpStore from '../stores/SignUpStore';
 import { RouteComponentProps } from 'react-router-dom';
 import { Title, Input,  Button, CodeInput } from '../components';
 
 
 export interface PropsType {
-  Global: Global,
-  SignUp: SignUpStore
+  GlobalStore: GlobalStore,
+  SignUpStore: SignUpStore
 }
 
 type SignUpProps = PropsType & RouteComponentProps;
 
 
-@inject('Global', 'SignUp')
+@inject('GlobalStore', 'SignUpStore')
 @observer
 class SignUp extends React.PureComponent<SignUpProps> {
   
@@ -24,15 +24,15 @@ class SignUp extends React.PureComponent<SignUpProps> {
   }
   
   render () {
-    const {SignUp} = this.props;
+    const {SignUpStore} = this.props;
     return (
       <>
       <Title titleNormal title='注册' subtitle='已有账号,立即登录'/>
-      <Input value={SignUp.accountInfo.mobile} onChange={(e) => SignUp.setAccountInfo('mobile', e.target.value)} placeholder='请输入手机号'/>
-      <CodeInput value={SignUp.accountInfo.code} onChange={(e) => SignUp.setAccountInfo('code', e.target.value)}  phone={SignUp.accountInfo.mobile} />
-      <Input value={SignUp.accountInfo.password} onChange={(e) => SignUp.setAccountInfo('password', e.target.value)} type='password' placeholder='请输入密码' />
-      <Input value={SignUp.accountInfo.passwordRepeat} onChange={(e) => SignUp.setAccountInfo('passwordRepeat', e.target.value)} type='password' placeholder='请再次输入密码'/>
-      <Button onClick={SignUp.checkAccountInfo} type='primary' shape='round' ghost>立即注册</Button>
+      <Input value={SignUpStore.accountInfo.mobile} onChange={(e) => SignUpStore.setAccountInfo('mobile', e.target.value)} placeholder='请输入手机号'/>
+      <CodeInput type={3} value={SignUpStore.accountInfo.code} onChange={(e) => SignUpStore.setAccountInfo('code', e.target.value)}  phone={SignUpStore.accountInfo.mobile} />
+      <Input value={SignUpStore.accountInfo.password} onChange={(e) => SignUpStore.setAccountInfo('password', e.target.value)} type='password' placeholder='请输入密码' />
+      <Input value={SignUpStore.accountInfo.passwordRepeat} onChange={(e) => SignUpStore.setAccountInfo('passwordRepeat', e.target.value)} type='password' placeholder='请再次输入密码'/>
+      <Button onClick={SignUpStore.checkAccountInfo} type='primary' shape='round' ghost>立即注册</Button>
       </>
     )
   }

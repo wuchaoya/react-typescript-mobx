@@ -8,7 +8,7 @@ export interface ObjectType {
   [key: string]: string,
 }
 
-class SignIn {
+class SignInStore {
   
   // 记住密码
   @observable remember: boolean
@@ -85,4 +85,4 @@ class SignIn {
   
 }
 
-export default SignIn;
+export default SignInStore;

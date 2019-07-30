@@ -13,6 +13,7 @@ export interface IndexInterfaceState {
   waitTime?: number,
   countDownTime?: number
   getSmsFunc?: any
+  type: number
 }
 
 export interface CountDownState {
@@ -113,13 +114,16 @@ class CountDown extends React.Component<IndexInterfaceState, CountDownState> {
   
   // 发送请求
   private async sendData() {
-    const response = await getvcode ({mobile: this.props.phone, type: 3});
-    console.log(response);
+    const response = await getvcode ({mobile: this.props.phone, type: this.props.type});
     if(response.error) {
       this.setButtonIsUsable();
       return false;
     }
     this.countDownHandler();
+  }
+  
+  componentWillUnmount () {
+    clearInterval(this.countInterval)
   }
   
   

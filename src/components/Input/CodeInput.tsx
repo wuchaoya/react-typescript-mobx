@@ -5,9 +5,10 @@ import CountDown from '../CountDown';
 
 import './style.less';
 
-export interface PropsType extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'> {
+export interface PropsType extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix' | 'type'> {
   prefixCls?: string;
-  phone:string
+  phone:string;
+  type: number
 }
 
 const CodeInput: React.FC<PropsType> = props => {
@@ -18,6 +19,7 @@ const CodeInput: React.FC<PropsType> = props => {
     <div className={classnames(prefixCls)}>
       <Input value={value} onChange={onChange} placeholder='请输入验证码'/>
       <CountDown
+        type={props.type}
         isNeedValidatePhone={true}
         phone={phone}
         waitTime={60}

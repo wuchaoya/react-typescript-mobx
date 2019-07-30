@@ -1,18 +1,19 @@
 import request from '../utils/request';
 import {ObjectType} from '../stores/SignInStore';
 
+
 /**
- * 注册
+ * 忘记密码
  * mobile 用户帐号
  * password 登录密码
  * code 验证码
  */
 
-export async function signUp (params: Pick<ObjectType, string | number>) {
+export async function resetPassword (params: Pick<ObjectType, string | number>) {
   window.localStorage.setItem('headerData', JSON.stringify({mobile: params.mobile}))
-  return request(`/pub/user/register`, {
+  return request(`/pub/user/forget`, {
     method: 'POST',
-    requestType: 'form', // post请求时数据类型
+    requestType: 'form',
     data: params,
   })
 }

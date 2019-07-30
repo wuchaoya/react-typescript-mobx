@@ -1,6 +1,6 @@
 import {observable,action} from 'mobx';
 
-class Global {
+class GlobalStore {
   
   @observable title:string
   
@@ -10,4 +10,4 @@ class Global {
   
 }
 
-export default Global;
+export default GlobalStore;

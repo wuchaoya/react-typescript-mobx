@@ -1,12 +1,12 @@
 import {observable,action} from 'mobx';
 import {message} from 'antd';
 import * as R from 'ramda'
-import { signUp } from '../services/SignUp';
-import { ObjectType } from './SignIn';
+import { resetPassword } from '../services/ResetPassword';
+import { ObjectType } from './SignInStore';
 import {history} from '../stores';
 import {checkMobile, checkPassword, checkVcode} from '../utils/RegExps';
 
-class SignUp {
+class ResetPasswordStore {
   
   @observable accountInfo: ObjectType = {
     mobile: '',
@@ -20,7 +20,6 @@ class SignUp {
   }
   
   @action.bound async checkAccountInfo() {
-    console.log(this.accountInfo.code);
     if(!checkMobile(this.accountInfo.mobile)) {
       message.warning('请输入正确手机号');
       return false
@@ -38,15 +37,15 @@ class SignUp {
       return false;
     }
     
-    await this.signUp();
+    await this.resetPassword();
   }
   
-  @action.bound async signUp () {
-    const response = await signUp (R.omit(['passwordRepeat'],this.accountInfo));
+  @action.bound async resetPassword () {
+    const response = await resetPassword (R.omit(['passwordRepeat'],this.accountInfo));
     if (response.error) return;
     history.push('/');
   }
   
 }
 
-export default SignUp;
+export default ResetPasswordStore;
