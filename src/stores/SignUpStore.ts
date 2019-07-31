@@ -20,7 +20,6 @@ class SignUpStore {
   }
   
   @action.bound async checkAccountInfo() {
-    console.log(this.accountInfo.code);
     if(!checkMobile(this.accountInfo.mobile)) {
       message.warning('请输入正确手机号');
       return false
@@ -42,7 +41,6 @@ class SignUpStore {
   }
   
   @action.bound async signUp () {
-    console.log(R.omit(['passwordRepeat'],this.accountInfo))
     const response = await signUp (R.omit(['passwordRepeat'],this.accountInfo));
     if (response.error) return;
     history.push('/');

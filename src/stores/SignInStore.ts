@@ -57,7 +57,6 @@ class SignInStore {
     const headerDataString: string | null = window.localStorage.getItem('headerData');
     const headerData = headerDataString ? JSON.parse(headerDataString) : {mobile: ''};
     // 记住密码状态 存在登录信息 缓存手机号与本次手机号一致
-    console.log(this.remember, userInfo, headerData.mobile, this.accountInfo.mobile)
     if(this.remember && userInfo !== null && headerData.mobile === this.accountInfo.mobile) {
       await this.getUserInfo()
       return false;

@@ -13,6 +13,7 @@
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.4",
     "@types/react-router-dom": "^4.3.4",
+    "@types/shortid": "^0.0.29",
     "antd": "^3.20.6",
     "babel-plugin-import": "^1.12.0",
     "classnames": "^2.2.6",
@@ -33,6 +34,7 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "shortid": "^2.2.14",
     "source-map-explorer": "^2.0.1",
     "typescript": "3.5.3",
     "umi-request": "^1.2.0-beta.4"
