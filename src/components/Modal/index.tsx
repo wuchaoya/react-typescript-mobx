@@ -153,14 +153,13 @@ Modali.Modal = Modal;
 Modali.File = File;
 export default Modali;
 
-export const useModali = (options: OptionsPropTypes ): [
-{
-  isShown: boolean,
-  isModalVisible: boolean,
-  hide: () => void,
-  options: OptionsPropTypes,
-} // 返回类型
-,() => void] => {
+export const useModali = (options: OptionsPropTypes ):
+  [{
+    isShown: boolean,
+    isModalVisible: boolean,
+    hide: () => void, options: OptionsPropTypes,
+  } // 返回类型
+ ,() => void] => {
   const [hasToggledBefore, setHasToggledBefore] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isShown, setIsShown] = useState(false);

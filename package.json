@@ -42,6 +42,7 @@
   "scripts": {
     "analyze": "cross-env BUNDLE_VISUALIZE=1 react-app-rewired build",
     "start": "cross-env react-app-rewired start",
+    "pre": "cross-env react-app-rewired start",
     "build": "cross-env react-app-rewired build",
     "test": "cross-env react-app-rewired test",
     "eject": "cross-env react-scripts eject"

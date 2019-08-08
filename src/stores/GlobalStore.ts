@@ -4,7 +4,7 @@ class GlobalStore {
   
   @observable title:string
   
-  @action.bound setTitle (title: string) {
+  @action setTitle (title: string) {
     this.title = title;
   }
   

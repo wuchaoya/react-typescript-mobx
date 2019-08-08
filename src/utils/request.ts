@@ -46,7 +46,7 @@ const errorHandler = (error: { response: Response }): Response => {
     });
   }
   let newResponse: any = response;
-  newResponse.error = true;
+  //newResponse.error = true;
   return newResponse;
 };
 
