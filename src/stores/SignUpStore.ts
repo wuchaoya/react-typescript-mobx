@@ -1,6 +1,6 @@
 import {observable,action} from 'mobx';
 import {message} from 'antd';
-import * as R from 'ramda'
+import * as R from 'ramda';
 import { signUp } from '../services/SignUp';
 import { ObjectType } from './SignInStore';
 import {history} from '../stores';

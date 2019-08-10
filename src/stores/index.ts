@@ -3,8 +3,10 @@ import { RouterStore, syncHistoryWithStore } from 'mobx-react-router';
 import GlobalStore from './GlobalStore';
 import SignInStore from './SignInStore';
 import SignUpStore from './SignUpStore';
-import ResetPasswordStore from './ResetPasswordStore';
 import HomeStore from './HomeStore';
+import OrderStore from './OrderStore';
+import ResetPasswordStore from './ResetPasswordStore';
+
 
 const browserHistory = createBrowserHistory();
 const routingStore = new RouterStore();
@@ -19,5 +21,6 @@ export default {
   SignInStore: new SignInStore(),
   SignUpStore: new SignUpStore(),
   ResetPasswordStore: new ResetPasswordStore(),
-  HomeStore: new HomeStore()
+  HomeStore: new HomeStore(),
+  OrderStore: new OrderStore()
 }

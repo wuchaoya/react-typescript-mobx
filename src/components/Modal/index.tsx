@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import shortid from 'shortid';
 import './style.less';
 import File from './File';
+import OrderDetail from './OrderDetail';
 
 export interface ButtonPropTypes {
   onClick?: React.MouseEventHandler<HTMLElement>,
@@ -151,6 +152,7 @@ const Modali = () => {};
 Modali.Button = Button;
 Modali.Modal = Modal;
 Modali.File = File;
+Modali.OrderDetail = OrderDetail;
 export default Modali;
 
 export const useModali = (options: OptionsPropTypes ):

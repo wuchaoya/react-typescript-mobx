@@ -1,0 +1,37 @@
+@import '../../../styles/mixins.less';
+
+@orderDetailPrefixCls: gc-order-detail;
+
+.@{orderDetailPrefixCls} {
+
+  padding-left: 36 * @hd;
+  padding-bottom: 36 * @hd;
+
+  &-title {
+    font-size: 22 * @hd;
+    color: #555;
+    margin-bottom: 24 * @hd;
+  }
+
+  &-list {
+    margin-bottom: 24 * @hd;
+
+    &-item {
+      margin-bottom: 18 * @hd;
+    }
+
+  }
+
+  &-error {
+    color: #D72E2E;
+  }
+
+  &-default {
+    color: #888;
+  }
+
+  &-success {
+    color: #08CC06;
+  }
+
+}

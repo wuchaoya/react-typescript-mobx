@@ -5,7 +5,7 @@ import Nav from '../components/Nav';
 import Modali, { useModali } from '../components/Modal';
 import GlobalStore from '../stores/GlobalStore';
 import HomeStore from '../stores/HomeStore';
-import gameListProxy from '../Proxys/gameListProxy';
+import apiListProxy from '../Proxys/apiListProxy';
 
 interface PropsType {
   GlobalStore: GlobalStore,
@@ -32,7 +32,7 @@ const Home: React.FC<PropsType> = inject('GlobalStore','HomeStore') (observer(pr
         上传、管理文件
       </button>
       <Modali.Modal {...completeModal}>
-        <Modali.File dataSource={mobx.toJS(HomeStore.gameList).map(gameListProxy)} />
+        <Modali.File dataSource={mobx.toJS(HomeStore.gameList).map(apiListProxy)} />
       </Modali.Modal>
     </>
   )

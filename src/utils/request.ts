@@ -120,7 +120,7 @@ request.interceptors.response.use((response, options) => {
     response.json().then(res => {
       if (res.code !== 10000) {
         res.error = true
-        message.error(res.result)
+        message.error(res.result || res.msg)
       }
       resolve(res)
     })

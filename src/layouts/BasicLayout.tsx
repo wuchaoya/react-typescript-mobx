@@ -6,6 +6,7 @@ import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import Home from '../pages/Home';
 import ResetPassword from '../pages/ResetPassword';
+import Order from '../pages/Order';
 
 // path不区分大小写
 
@@ -16,6 +17,7 @@ const BasicLayout: React.FC = () => {
       <Route exact path='/SignUp' component={SignUp} />
       <Route exact path='/Home' component={Home} />
       <Route exact path='/ResetPassword' component={ResetPassword} />
+      <Route exact path='/Order' component={Order} />
     </Router>
   )
 }

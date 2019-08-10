@@ -15,7 +15,7 @@ export const routes: routerType[] = [
     name: '购买'
   },
   {
-    path: '/',
+    path: '/Order',
     name: '个人中心'
   },
   {
