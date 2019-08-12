@@ -1,0 +1,39 @@
+@import '../../styles/mixins.less';
+
+@amountPrefixCls: gc-amount;
+
+
+.@{amountPrefixCls} {
+
+  background: rgb(240, 240, 240);
+  height: 44 * @hd;
+  .flex(flex-end, center);
+
+  &-small {
+    width: 800 * @hd;
+  }
+
+  &-large {
+    width: 1100 * @hd;
+  }
+
+  &-description {
+    font-size: 12 * @hd;
+    color: #222;
+  }
+
+  &-sum {
+    font-size: 18 * @hd;
+    color: @brand-primary;
+    margin-left:  18 * @hd;
+  }
+
+  &-button {
+    height: 44 * @hd;
+    width: 108 * @hd;
+    margin-left: 36 * @hd;
+    border-radius: 0;
+  }
+
+}
+

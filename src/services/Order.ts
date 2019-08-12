@@ -8,7 +8,7 @@ import { stringify } from 'qs';
 export async function getOrderList () {
   return request(`/api/bill/device/orders`, {
     method: 'GET',
-    requestType: 'form', // post请求时数据类型
+    requestType: 'form',
     data: {},
   })
 }
@@ -20,7 +20,7 @@ export async function getOrderList () {
 export async function getOrderDetail (params: object) {
   return request(`/api/saas/order/phone_detail?${stringify(params)}`, {
     method: 'GET',
-    requestType: 'form', // post请求时数据类型
+    requestType: 'form',
     data: params,
   })
 }

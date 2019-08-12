@@ -10,7 +10,7 @@ import request from '../utils/request';
 export async function login (params: object) {
   return request(`/pub/user/login`, {
     method: 'POST',
-    requestType: 'form', // post请求时数据类型
+    requestType: 'form',
     data: params,
   })
 }

@@ -8,7 +8,7 @@ import request from '../utils/request';
 export async function getGameList () {
   return request(`/api/user/attach/game/list`, {
     method: 'GET',
-    requestType: 'form', // post请求时数据类型
+    requestType: 'form',
     data: {},
   })
 }

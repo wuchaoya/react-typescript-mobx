@@ -12,7 +12,7 @@ export async function signUp (params: Pick<ObjectType, string | number>) {
   window.localStorage.setItem('headerData', JSON.stringify({mobile: params.mobile}))
   return request(`/pub/user/register`, {
     method: 'POST',
-    requestType: 'form', // post请求时数据类型
+    requestType: 'form',
     data: params,
   })
 }

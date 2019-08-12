@@ -5,6 +5,7 @@ import SignInStore from './SignInStore';
 import SignUpStore from './SignUpStore';
 import HomeStore from './HomeStore';
 import OrderStore from './OrderStore';
+import BuyStore from './BuyStore';
 import ResetPasswordStore from './ResetPasswordStore';
 
 
@@ -22,5 +23,6 @@ export default {
   SignUpStore: new SignUpStore(),
   ResetPasswordStore: new ResetPasswordStore(),
   HomeStore: new HomeStore(),
-  OrderStore: new OrderStore()
+  OrderStore: new OrderStore(),
+  BuyStore: new BuyStore()
 }
