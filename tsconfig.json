@@ -22,7 +22,7 @@
     "jsx": "preserve",
     "isolatedModules": true
   },
-  "exclude": ["src/config/*.ts", "src/utils/request.ts"],
+  "exclude": ["src/config/*.ts", "src/utils/mock.ts", "src/mock/*.ts"],
   "include": [
     "src"
   ]

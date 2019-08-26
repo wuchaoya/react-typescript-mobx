@@ -1,5 +1,5 @@
 import request from '../utils/request';
-
+import { stringify } from 'qs';
 
 /**
  * 获取验证码
@@ -13,5 +13,22 @@ export async function getvcode (params: {mobile: string, type: number}) {
     method: 'POST',
     requestType: 'form', // post请求时数据类型
     data: params,
+  })
+}
+
+export async function getDevicePlayInfo (params: object) {
+  return request(`/api/saas/device/play?${stringify(params)}`, {
+    method: 'GET',
+    requestType: 'form', // post请求时数据类型
+    data: params,
+  })
+}
+
+
+export async function testAPI () {
+  return request(`/api/initialize/get`, {
+    method: 'GET',
+    requestType: 'form', // post请求时数据类型
+    data: {},
   })
 }

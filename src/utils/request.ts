@@ -112,7 +112,6 @@ const request = extend({
 request.interceptors.request.use( interceptors );
 
 request.interceptors.response.use((response, options) => {
-  console.log(response);
   if (response.status !== 200) {
     return response
   }

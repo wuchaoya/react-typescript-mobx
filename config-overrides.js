@@ -1,17 +1,43 @@
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-const theme = require('./src/config/theme.ts') ;
+const path = require('path');
+
+const fs = require('fs');
+
+const apiMocker = require('mocker-api');
+
+const theme = require('./src/config/theme.ts');
 
 const WebHost = require('./src/config/webHost.ts');
 
-const deploy = true;
+const TARGET = process.env.npm_lifecycle_event.split(':').length === 2 ?
+	process.env.npm_lifecycle_event.split(':')[1] : process.env.npm_lifecycle_event;
+
+const Mock = process.env.MOCK;
+
+let mockFiles
+
+fs.readdir('./src/mock', (err, files) => {
+	mockFiles = files.map(file => path.resolve('./src/mock', file))
+	}
+)
 
 
 const {
 	addLessLoader, override,
 	addWebpackAlias, addBundleVisualizer,
-	fixBabelImports
+	fixBabelImports, overrideDevServer
 } = require('customize-cra');
+
+const addBefore = before => config => {
+	Mock && (config.before =  before)
+	return config
+}
+
+const addProxy = proxy => config => {
+	config.proxy = proxy
+	return config
+}
 
 module.exports = {
 	webpack: override(
@@ -23,7 +49,7 @@ module.exports = {
 			style: true,
 		}),
 		// less支持
-		addLessLoader({javascriptEnabled: true,modifyVars: theme}),
+		addLessLoader({javascriptEnabled: true, modifyVars: theme}),
 		// 打包后分析包大小
 		process.env.BUNDLE_VISUALIZE == 1 && addBundleVisualizer(),
 		// src 设置为根目录
@@ -36,29 +62,21 @@ module.exports = {
 		return config;
 	},
 	
-	devServer: function (configFunction) {
-		return function (proxy, allowedHost) {
-			if (deploy) {
-				const TARGET = process.env.npm_lifecycle_event;
-				proxy = {
-					'/api': {
-						target: WebHost[TARGET],
-					},
-					'/log': {
-						target: 'http://172.16.2.220:8768',
-						pathRewrite: {'^/log' : ''}
-					},
-					'/pub' : {
-						target: WebHost[TARGET],
-					},
-					
-				}
+	devServer: overrideDevServer(
+		addBefore(app => apiMocker(app,mockFiles)),
+		addProxy({
+			'/api': {
+				target: WebHost[TARGET],
+			},
+			'/log': {
+				target: 'http://172.16.2.220:8768',
+				pathRewrite: {'^/log': ''}
+			},
+			'/pub': {
+				target: WebHost[TARGET],
 			}
-			const config = configFunction(proxy, allowedHost);
-			
-			return config;
-		}
-	},
+		})
+	),
 	
 	paths: function (paths, env) {
 		return paths;

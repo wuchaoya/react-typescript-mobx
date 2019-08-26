@@ -24,11 +24,12 @@ const Order: React.FC<PropsType> = inject('GlobalStore','OrderStore') (observer(
     toggleCompleteModal()
   }
   
-  const {OrderStore} = props;
+  const {OrderStore,GlobalStore} = props;
   
    useEffect(() => {
-     (async() => await OrderStore.getOrderList())()
-   },[OrderStore])
+     (async() => await OrderStore.getOrderList())();
+     (async() => await GlobalStore.testAPI())();
+   },[OrderStore, GlobalStore])
   
   return (
     <>
