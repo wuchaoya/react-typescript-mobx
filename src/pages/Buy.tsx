@@ -6,6 +6,7 @@ import BuyStore from '../stores/BuyStore';
 import Amount from '../components/Amount';
 import BuyOptions from '../components/BuyOptions';
 import ChangeHook from '../components/ChangeHook';
+import Nav from '../components/Nav';
 
 interface PropsType {
   GlobalStore: GlobalStore,
@@ -26,6 +27,7 @@ const Buy: React.FC<PropsType> = inject('GlobalStore','BuyStore') (observer(prop
   
   return (
     <>
+    <Nav/>
     <BuyOptions dataSource={toJS(BuyStore.pricesList)} select={active} />
     <Amount/>
     </>
